@@ -21,7 +21,7 @@ public class EquipamentoRepository {
         this.dataSource = dataSource;
     }
 
-    public List<Equipamento> listaTodos() {
+    public List<Equipamento> listarTodos() {
         String sql = "SELECT id, nome, patrimonio, disponivel FROM equipamentos ORDER BY id";
 
         List<Equipamento> equipamentos = new ArrayList<>();

@@ -46,8 +46,25 @@ public class EquipamentoController {
     }
 
     @DeleteMapping("/{id}")
-    public boolean excluir(@PathVariable Long id){
-        return equipamentoService.excluir(id);
+    public void excluir(@PathVariable Long id) {
+        equipamentoService.excluir(id);
+    }
+    @GetMapping("/patrimonio/{patrimonio}")
+    public Equipamento buscarPorPatrimonio(
+            @PathVariable String patrimonio
+    ) {
+        return equipamentoService.buscarPorPatrimonioLinear(patrimonio);
+    }
+
+    @GetMapping("/ordenados")
+    public List<Equipamento> listarOrdenados() {
+        return equipamentoService.ordenarPorNome();
+    }
+
+    @GetMapping("/nome/{nome}")
+    public Equipamento buscarPorNome(@PathVariable String nome
+    ) {
+        return equipamentoService.buscarPorNomeBinaria(nome);
     }
 
 }
