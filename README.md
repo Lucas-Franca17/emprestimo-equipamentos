@@ -109,6 +109,11 @@ WHERE id = ?
 
 O uso de consultas parametrizadas evita a concatenação direta dos valores recebidos nas instruções SQL.
 
+Melhoria:
+Uma melhoria de segurança que implementamos foi a proteção das credenciais do banco de dados. 
+Em vez de armazenarmos o usuário e a senha diretamente no código-fonte, utilizamos variáveis de ambiente, chamadas DB_USERNAME e DB_PASSWORD. 
+Essas variáveis são configuradas no ambiente de execução e acessadas pelo Spring Boot. Com isso, reduzimos o risco de exposição das credenciais ao publicar o projeto no GitHub e facilitamos a manutenção do sistema.
+
 Transações
 
 As operações de empréstimo e devolução utilizam transações.
